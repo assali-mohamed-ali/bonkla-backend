@@ -1,10 +1,17 @@
 const jwt = require('jsonwebtoken');
 
 module.exports = (req, res, next) => {
-  const token = req.header('Authorization');
+  const authHeader = req.header('Authorization');
   const secret = process.env.JWT_SECRET || "secretkey";
 
-  if (!token) return res.status(401).json({ message: 'Accès refusé' });
+  if (!authHeader) {
+    return res.status(401).json({ message: 'Accès refusé' });
+  }
+
+  // Support both "Bearer <token>" and raw token
+  const token = authHeader.startsWith('Bearer ')
+    ? authHeader.slice(7)
+    : authHeader;
 
   try {
     const verified = jwt.verify(token, secret);

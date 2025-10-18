@@ -1,0 +1,42 @@
+# Version control
+.git
+.gitignore
+.gitattributes
+
+# Node
+node_modules
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Environment variables
+.env
+.env.*
+
+# Development
+*.log
+*.md
+.editorconfig
+.eslintrc
+.prettierrc
+coverage
+tests
+__tests__
+test
+docs
+
+# IDE specific
+.idea
+.vscode
+*.sublime-*
+*.swp
+*.swo
+
+# Build output
+dist
+build
+*.tsbuildinfo
+
+# OS specific
+.DS_Store
+Thumbs.db
